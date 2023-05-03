@@ -2,6 +2,7 @@
 using Foodea.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Foodea.Controllers {
     [Route("api/[controller]")]
@@ -53,6 +54,17 @@ namespace Foodea.Controllers {
         public async Task<IActionResult> searchRecipe(string query) {
             try {
                 var content = await this.spoonacularServices.searchRecipe(query);
+                return Ok(content);
+            }
+            catch (Exception ex) {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("ingredients/{ingredients}")]
+        public async Task<IActionResult> getRecipesByIngredients(string ingredients) {
+            try {
+                var content = await this.spoonacularServices.getRecipesByIngredients(ingredients);
                 return Ok(content);
             }
             catch (Exception ex) {
