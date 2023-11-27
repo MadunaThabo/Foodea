@@ -1,16 +1,16 @@
 <div class="card">
-  <div class="card__image">
-    <img src="{{ recipe.image }}" alt="{{ recipe.title }}" />
+  <div class="card__imageContainer">
+    <img class="card__image" src="{{ recipe.image }}" alt="{{ recipe.title }}" />
   </div>
   <div class="card__content">
-    <div class="card__content__title">
-      {{ recipe.title }}
-    </div>
+    <h2 class="card__content__subtitle">
+      {{ recipe.name | slice:0:47 }}{{ recipe.description.length > 47 ? '...' : '' }}
+    </h2>
     <div class="card__content__description">
-      {{ recipe.description }}
+      {{ recipe.description | slice:0:250 }}{{ recipe.description.length > 250 ? '...' : '' }}
     </div>
     <div class="card__content__button">
-      <a href="/recipe-view/{{ recipe.id }}">learn more</a>
+      <button class="btn-primary">View</button>
     </div>
   </div>
 </div>

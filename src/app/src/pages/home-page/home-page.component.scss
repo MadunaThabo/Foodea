@@ -10,6 +10,8 @@
 
   &__content{
     background-color: white;
+    background-image: linear-gradient(to right bottom,rgba(#eb2f64, 0.5) , rgba(#FF3366, 0.5)), url(../../../../assets/carousel1.jpg);
+    background-size: cover;
     margin: 2rem 8rem;
     padding: 2rem;
     border-radius: 5px;
@@ -41,6 +43,20 @@
         color: var(--color-grey-dark-1);
       }
 
+      &__content{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin: 2rem;
+
+
+        &__card{
+          // display: flex;
+          flex: 0 0 30%;
+          margin: 1rem;
+          align-content: stretch;
+        }
+      }
     }
 
   }
