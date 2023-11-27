@@ -10,7 +10,9 @@
           <span class="homepage__content__recipeAndArticles__title">
             Recipe and Articles
           </span>
-          this content will be here
+          <div class="recipes-and-articles">
+            <app-card *ngFor="let recipe of recipes" [recipe]="recipe"></app-card>
+          </div>
         </div>
       </div>
   </main>
