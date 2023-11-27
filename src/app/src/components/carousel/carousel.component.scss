@@ -1,0 +1,19 @@
+.carousel{
+  display: flex;
+  height: 30rem;
+  overflow: hidden;
+  margin: 2rem 8rem;
+  background-color: var(--color-grey-dark-1);
+  border-radius: 5px;
+
+
+  img{
+    width: 100%;
+    height: 30rem;
+    object-fit: cover;
+  }
+
+  &-caption{
+    background-color: var(--color-grey-dark-1);
+  }
+}

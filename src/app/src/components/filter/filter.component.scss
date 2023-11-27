@@ -1,0 +1,102 @@
+.filter{
+  background-color: var(--color-grey-light-1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem;
+  margin: 2rem;
+  border-radius: var(--border-radius-small);
+  box-shadow: var(--box-shadow);
+  border: var(--line);
+
+  &__card{
+    background-color: var(--color-grey-light-1);
+    border-radius: var(--border-radius-small);
+    box-shadow: var(--box-shadow);
+    margin: 2rem;
+    padding: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    &__search-input{
+      width: 25rem;
+      height: 3.5rem;
+      border-radius: 100px;
+      background-color: var(--color-grey-light-2);
+      border: none;
+      font-size: 1.5rem;
+      font-family: inherit;
+      color: inherit;
+      padding-left: 3rem;
+      text-align: center;
+      transition: all .2s;
+
+      &:focus{
+        outline-color: var(--color-primary);
+        width: 30rem;
+        background-color: var(--color-grey-light-3);
+      }
+
+      &::-webkit-input-placeholder{
+        font-weight: 100;
+        color: var(--color-grey-dark-3);
+      }
+
+
+      &__icon{
+        background-color: yellow;
+        height: 2.5rem;
+        width: 2.5rem;
+      }
+    }
+
+    &__subtitle{
+      font-size: 1.5rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      margin: 2rem;
+      letter-spacing: .5rem;
+      color: var(--color-grey-dark-1);
+    }
+
+    &__list{
+      list-style: none;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 2rem;
+
+      &-item{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        box-shadow: var(--box-shadow);
+        padding: 1rem;
+        background-color: var(--color-grey-light-2);
+        transition: all .2s;
+        }
+      }
+  }
+
+  &__title{
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin: 2rem;
+    letter-spacing: .5rem;
+    color: var(--color-grey-dark-1);
+  }
+
+
+
+
+
+}

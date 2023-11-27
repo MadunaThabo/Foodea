@@ -1,3 +1,5 @@
+@import "bootstrap/dist/css/bootstrap.css";
+
 :root{
   //Colors
   --color-primary: #eb2f64;
@@ -50,7 +52,7 @@
   --breakpoint-tab-land: 75em; //1200px
   --breakpoint-big-desktop: 112.5em; //1800px
 
-  --line: 1px solid var(--color-grey-light-2) ;
+  --line: 1px solid var(--color-grey-light-3) ;
 
 }
 
@@ -76,4 +78,42 @@ body{
   background-repeat: no-repeat;
   min-height: 100vh;
   margin: 0;
+}
+
+.btn{
+  &-primary{
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    position: relative;
+    font-size: 1.6rem;
+    border: none;
+    cursor: pointer;
+    background-color: var(--color-primary);
+    color: #fff;
+
+    &:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
+    }
+
+    &:active{
+      transform: translateY(-1px);
+      box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+    }
+
+    &:focus{
+      outline: none;
+    }
+
+    &:link{
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+
 }

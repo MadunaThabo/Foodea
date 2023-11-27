@@ -1,3 +1,3 @@
 export var globalVars = {
-  loggedIn: false
+  loggedIn: true,
 };
