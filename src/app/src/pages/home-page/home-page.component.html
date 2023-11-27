@@ -13,13 +13,10 @@
           <div class="homepage__content__recipeAndArticles__content">
             <app-card *ngFor="let recipe of recipes" [recipe]="recipe" class="homepage__content__recipeAndArticles__content__card"></app-card>
           </div>
+          <app-pagination></app-pagination>
         </div>
       </div>
   </main>
-
-
-
-
-
 </div>
 
+<app-footer></app-footer>

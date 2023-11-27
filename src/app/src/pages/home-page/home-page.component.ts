@@ -4,13 +4,15 @@ import { NavigationComponent } from "../../components/navigation/navigation.comp
 import { CarouselComponent } from "../../components/carousel/carousel.component";
 import { FilterComponent } from "../../components/filter/filter.component";
 import { CardComponent } from "../../components/card/card.component";
+import { PaginationComponent } from "../../components/pagination/pagination.component";
+import { FooterComponent } from "../../components/footer/footer.component";
 
 @Component({
     selector: 'app-home-page',
     standalone: true,
     templateUrl: './home-page.component.html',
     styleUrl: './home-page.component.scss',
-    imports: [CommonModule, NavigationComponent, CarouselComponent, FilterComponent, CardComponent]
+    imports: [CommonModule, NavigationComponent, CarouselComponent, FilterComponent, CardComponent, PaginationComponent, FooterComponent]
 })
 export class HomePageComponent {
   recipes = [

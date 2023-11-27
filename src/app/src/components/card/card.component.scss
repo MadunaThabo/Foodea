@@ -18,7 +18,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    // margin-bottom: var(--spacing-small);
   }
 
   &__image{
@@ -44,12 +43,8 @@
 
     &__description{
       font-size: 1.5rem;
-      // font-weight: 300;
-      // text-transform: uppercase;
       margin-bottom: 2rem;
-      // letter-spacing: .5rem;
       color: var(--color-grey-dark-2);
-      // text-align: center;
     }
   }
 }

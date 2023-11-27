@@ -1,11 +1,5 @@
 .homepage{
   &__container{
-    // background-image: linear-gradient(to right bottom, rgba(purple, 0.8), rgba(yellow, 0.8)), url(../../../../assets/wallpaper-cooking.jpg);
-    // background-image: linear-gradient(to right bottom, rgba(var(--color-primary-light), 0.8), rgba(var(--color-primary-dark), 0.8)), url(../../../../assets/wallpaper-cooking.jpg);
-    // background-size: cover;
-    // background-position: top;
-    // position: relative;
-    // height: 85vh;
   }
 
   &__content{
@@ -45,13 +39,12 @@
 
       &__content{
         display: flex;
-        justify-content: space-around;
+        align-content: start;
         flex-wrap: wrap;
         margin: 2rem;
 
 
         &__card{
-          // display: flex;
           flex: 0 0 30%;
           margin: 1rem;
           align-content: stretch;
