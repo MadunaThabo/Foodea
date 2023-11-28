@@ -1,0 +1,219 @@
+.login{
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(black, .8);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &:target{
+    opacity: 1;
+    visibility: visible;
+  }
+
+  // &:hover {
+  //       color: var(--color-primary);
+  // }
+
+  &__close {
+    position: relative;
+    transition: all .2;
+
+    &__button{
+      &:link,
+      &:visited {
+        text-decoration: none;
+        color: var(--color-grey-dark-1);
+        position: absolute;
+        top: -18rem;
+        right: -90rem;
+        font-size: 3rem;
+        text-decoration: none;
+        display: inline-block;
+        transition: all .2s;
+        line-height: 1;
+        cursor: pointer;
+        border-radius: 100%;
+        background-color: white;
+        padding: 2rem;
+      }
+    }
+
+  }
+
+  &__content{
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    width: 40%;
+    // height: 50%;
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-dark);
+
+    &__logo{
+        display: flex;
+        flex-direction: column;
+
+        &--image{
+          animation: rotate 5s infinite;
+          height: 15rem;
+          width: 15rem;
+        }
+
+        &--name{
+          font-size: 1.5rem;
+          font-weight: 600;
+          text-decoration: none;
+          text-transform: uppercase;
+          text-align: center;
+          letter-spacing: 0.2rem;
+          color: var(--color-grey-dark-1);
+          font-family: 'Josefin Sans', sans-serif;
+          margin: .5rem 2rem 0 2rem;
+          border-bottom: var(--line);
+          padding-bottom: 1rem;
+        }
+      }
+
+
+    &__loginorsignup{
+      // background-color: red;
+      width: fit-content;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: row;
+      border-radius: var(--border-radius-medium);
+
+      &__heading{
+        // background-color: red;
+        padding: 1rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+
+        &:active{
+          color: var(--color-primary);
+        }
+
+        // TODO: Add pointer for the options
+        &__login,
+        &__signup{
+          cursor: pointer;
+          &:hover{
+            color: var(--color-primary);
+          }
+        }
+      }
+      .active{
+        background-color: var(--color-primary);
+        color: white;
+      }
+
+    }
+
+    &__form{
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+
+      &__email{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        &__label{
+          font-size: 1.5rem;
+          font-weight: 300;
+          margin-bottom: .5rem;
+        }
+
+        &__input{
+          border-radius: 6rem;
+          border: var(--line);
+          padding: 1rem;
+          width: 30rem;
+          font-size: 1.5rem;
+          text-align: center;
+
+          &::placeholder{
+            text-align: center;
+            color: var(--color-grey-dark-2);
+          }
+        }
+      }
+
+      &__password{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        &__label{
+          font-size: 1.5rem;
+          font-weight: 300;
+          margin-bottom: .5rem;
+        }
+
+        &__input{
+          border-radius: 6rem;
+          border: var(--line);
+          padding: 1rem;
+          width: 30rem;
+          font-size: 1.5rem;
+        text-align: center;
+
+          &::placeholder{
+            text-align: center;
+          }
+        }
+      }
+
+      &__button{
+        border-radius: 6rem;
+        border: var(--line);
+        padding: 1rem;
+        width: 30rem;
+        font-size: 1.5rem;
+        margin-top: 1rem;
+        background-color: var(--color-primary);
+        color: white;
+        transition: all .2s;
+        margin-bottom: 2rem;
+
+        &:hover{
+          background-color: var(--color-primary-dark);
+        }
+
+        &:disabled{
+          background-color: var(--color-grey-light-1);
+          color: var(--color-grey-dark-2);
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+

@@ -116,4 +116,34 @@ body{
     }
   }
 
+  &-secondary{
+    // text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    transition: all .2s;
+    position: relative;
+    font-size: 1.6rem;
+    margin-left: -3rem;
+    border: none;
+    cursor: pointer;
+    color: var(--color-grey-dark-1);
+    outline: none;
+
+    &:active{
+      transform: translateY(-1px);
+      box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+    }
+
+    &:focus{
+      outline: none;
+    }
+
+    &:link{
+      text-decoration: none;
+      color: var(--color-grey-dark-1);
+    }
+  }
+
 }

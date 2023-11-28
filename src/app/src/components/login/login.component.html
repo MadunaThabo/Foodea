@@ -1,0 +1,34 @@
+<div class="login" id="login">
+
+  <div class="login__close">
+    <a href="#" class="login__close__button">X</a>
+  </div>
+
+  <div class="login__content">
+    <div class="login__content__logo ">
+    <img src="../../../../assets/logo.svg" alt="navigation__logo" class="login__content__logo--image">
+    <span class="login__content__logo--name">FooDea</span>
+  </div>
+
+  <div class="login__content__loginorsignup">
+      <span *ngIf="this.isLogin" class="login__content__loginorsignup__heading login__content__loginorsignup__heading__login active" (click)="switchLoginOrSignUpTab(true)">Login</span>
+      <span *ngIf="this.isLogin" class="login__content__loginorsignup__heading login__content__loginorsignup__heading__signup" (click)="switchLoginOrSignUpTab(false)">Sign Up</span>
+      <span *ngIf="!this.isLogin" class="login__content__loginorsignup__heading login__content__loginorsignup__heading__login" (click)="switchLoginOrSignUpTab(true)">Login</span>
+      <span *ngIf="!this.isLogin" class="login__content__loginorsignup__heading login__content__loginorsignup__heading__signup active" (click)="switchLoginOrSignUpTab(false)">Sign Up</span>
+  </div>
+    <form class="login__content__form" [formGroup]="this.loginForm" (ngSubmit)="onSubmit()">
+      <div class="login__content__form__email">
+        <label class="login__content__form__email__label" for="email">Email:</label>
+        <input class="login__content__form__email__input" type="email" id="email" formControlName="email" placeholder="user@email.com" />
+      </div>
+
+      <div class="login__content__form__password">
+        <label class="login__content__form__password__label" for="password">Password:</label>
+        <input class="login__content__form__password__input" type="password" id="password" formControlName="password" placeholder="*****"/>
+      </div>
+
+      <button *ngIf="this.isLogin" class="login__content__form__button" type="submit" [disabled]="loginForm.invalid">Login</button>
+      <button *ngIf="!this.isLogin" class="login__content__form__button" type="submit" [disabled]="loginForm.invalid">Sign Up</button>
+    </form>
+  </div>
+</div>

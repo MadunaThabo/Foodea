@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { globalVars } from '../../globals/constants';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-navigation',
@@ -11,11 +12,9 @@ import { globalVars } from '../../globals/constants';
   styleUrl: './navigation.component.scss'
 })
 export class NavigationComponent {
-  loggedIn: boolean;
-  accountName : string;
+  globalVars = globalVars;
 
   constructor() {
-    this.loggedIn = globalVars.loggedIn;
-    this.accountName = "Thabo Maduna"
+    
   }
 }

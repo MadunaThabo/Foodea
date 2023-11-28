@@ -6,13 +6,14 @@ import { FilterComponent } from "../../components/filter/filter.component";
 import { CardComponent } from "../../components/card/card.component";
 import { PaginationComponent } from "../../components/pagination/pagination.component";
 import { FooterComponent } from "../../components/footer/footer.component";
+import { LoginComponent } from "../../components/login/login.component";
 
 @Component({
     selector: 'app-home-page',
     standalone: true,
     templateUrl: './home-page.component.html',
     styleUrl: './home-page.component.scss',
-    imports: [CommonModule, NavigationComponent, CarouselComponent, FilterComponent, CardComponent, PaginationComponent, FooterComponent]
+    imports: [CommonModule, NavigationComponent, CarouselComponent, FilterComponent, CardComponent, PaginationComponent, FooterComponent, LoginComponent]
 })
 export class HomePageComponent {
   recipes = [
