@@ -14,7 +14,7 @@
       {{ recipe.description | slice:0:250 }}{{ recipe.description.length > 250 ? '...' : '' }}
     </div>
     <div class="card__content__button">
-      <button class="btn-primary">View</button>
+      <button class="btn-primary" routerLink="/recipe-view/{{recipe.id}}">View</button>
     </div>
   </div>
 </div>

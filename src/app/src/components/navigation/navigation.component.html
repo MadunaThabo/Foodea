@@ -10,17 +10,18 @@
       <!-- <button class="navigation__searchbar--button">Search</button> -->
     </div>
 
-    <div class="navigation__user">
+    <div class="navigation__user" (click)="openMenuOrLoginPopup()">
       <!-- TODO: make 2 different divs for loggedIn and not loggedIn the use onClick for different menus I guess -->
+      <!-- TODO: maybe figure out why it scrolls sometimes when the popup shows up -->
       <svg *ngIf="!this.globalVars.loggedIn"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 navigation__user__icon">
         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
       </svg>
 
-      <a class="btn-secondary" href="#login" *ngIf="!this.globalVars.loggedIn">log in</a>
+      <button class="btn-secondary" *ngIf="!this.globalVars.loggedIn">log in</button>
 
 
-      <img *ngIf="this.globalVars.loggedIn" src="../../../../assets/profile-male.jpg" alt="Profile Photo" class="navigation__user__img">
+      <img *ngIf="this.globalVars.loggedIn" src="{{this.globalVars.user.profile}}" alt="Profile Photo" class="navigation__user__img">
 
-      <span *ngIf="this.globalVars.loggedIn" class="navigation__user__name"> {{this.globalVars.user.firstName}} {{this.globalVars.user.lastName}} </span>
+      <span *ngIf="this.globalVars.loggedIn" class="navigation__user__name"> {{this.globalVars.user.name}} {{this.globalVars.user.surname}} </span>
   </div>
 </nav>

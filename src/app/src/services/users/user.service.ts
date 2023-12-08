@@ -1,33 +1,39 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, of, throwError } from 'rxjs';
+import { User } from '../../models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
-  apiUrl = 'https://localhost:7008/api/Users';
-  constructor(private httpClient: HttpClient) { }
 
-  login(email: string, password: string): Observable<any> {
+export class UserService {
+  apiUrl = 'https://localhost:7008/api/users';
+
+  constructor(public httpClient: HttpClient) {
+
+  }
+
+  login(email: string, password: string): Observable<User | Error> {
     const loginData = {
       email: email,
       password: password
     };
-
-    // Assuming your backend has an endpoint for login, adjust the URL accordingly
     const loginUrl = `${this.apiUrl}/login`;
 
-    return this.httpClient.post(loginUrl, loginData);
+    return this.httpClient.post<User>(loginUrl, loginData).pipe(
+      catchError((error) => {
+        // Handle specific errors based on status code or error object
+        if (error.status === 401) {
+          return of(new Error('Invalid username or password.'));
+        } else if (error.status === 500) {
+          return of(new Error('Internal server error, please try again later.'));
+        }
+        // Return generic error message for unknown errors
+        return of(new Error('An error occurred, please try again later.'));
+      })
+    );
   }
-
-
-  addSuperPower(superpower: any){
-    let url = 'http://localhost:8080/api/v3/superpowers';
-    return this.httpClient.post<any>(url, superpower);
-  }
-
-
 
 }
 

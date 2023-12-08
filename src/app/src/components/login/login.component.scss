@@ -6,13 +6,14 @@
   left: 0;
   background-color: rgba(black, .8);
   z-index: 9999;
-  opacity: 0;
-  visibility: hidden;
+  // opacity: 0;
+  // visibility: hidden;
   transition: all .3s;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow: hidden;
 
   &:target{
     opacity: 1;
@@ -24,39 +25,33 @@
   // }
 
   &__close {
-    position: relative;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
     transition: all .2;
 
     &__button{
-      &:link,
-      &:visited {
-        text-decoration: none;
-        color: var(--color-grey-dark-1);
-        position: absolute;
-        top: -18rem;
-        right: -90rem;
-        font-size: 3rem;
-        text-decoration: none;
-        display: inline-block;
-        transition: all .2s;
-        line-height: 1;
-        cursor: pointer;
-        border-radius: 100%;
-        background-color: white;
-        padding: 2rem;
-      }
+      text-decoration: none;
+      color: var(--color-grey-dark-1);
+      font-size: 3rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: all .2s;
+      line-height: 1;
+      cursor: pointer;
+      border-radius: 100%;
+      background-color: white;
+      padding: 2rem;
     }
 
   }
 
   &__content{
     display: flex;
-    // justify-content: center;
     align-items: center;
     flex-direction: column;
     background-color: white;
     width: 40%;
-    // height: 50%;
     border-radius: var(--border-radius-medium);
     box-shadow: var(--shadow-dark);
 
@@ -149,6 +144,10 @@
             text-align: center;
             color: var(--color-grey-dark-2);
           }
+
+          &.ng-touched.ng-invalid{
+            border: 1px solid red;
+          }
         }
       }
 
@@ -170,10 +169,14 @@
           padding: 1rem;
           width: 30rem;
           font-size: 1.5rem;
-        text-align: center;
+          text-align: center;
 
           &::placeholder{
             text-align: center;
+          }
+
+          &.ng-touched.ng-invalid{
+            border: 1px solid red;
           }
         }
       }
@@ -198,6 +201,20 @@
           background-color: var(--color-grey-light-1);
           color: var(--color-grey-dark-2);
           cursor: not-allowed;
+        }
+      }
+
+      &__errors{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: .5rem;
+
+
+        &__message{
+          margin-bottom: .5rem;
+          color: red;
+          font-size: 1.2rem;
         }
       }
     }

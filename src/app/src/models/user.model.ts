@@ -1,15 +1,11 @@
 
 export interface User {
-  id: string,
+  UserId: string
+  name: string,
+  surname: string,
   email: string,
+  profile: string,
   password: string,
-  firstName: string,
-  lastName: string,
-  address: string,
-  city: string,
-  state: string,
-  zip: string,
-  phone: string,
-  role: string,
-  active: boolean
 }
+
+

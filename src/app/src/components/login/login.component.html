@@ -1,7 +1,7 @@
 <div class="login" id="login">
 
   <div class="login__close">
-    <a href="#" class="login__close__button">X</a>
+    <button (click)="closePopup()" class="login__close__button">X</button>
   </div>
 
   <div class="login__content">
@@ -25,6 +25,14 @@
       <div class="login__content__form__password">
         <label class="login__content__form__password__label" for="password">Password:</label>
         <input class="login__content__form__password__input" type="password" id="password" formControlName="password" placeholder="*****"/>
+      </div>
+
+      <div class="login__content__form__errors">
+        <span *ngIf="this.loginForm.controls['email'].touched && this.loginForm.controls['email'].errors?.['required']" class="login__content__form__errors__message">Email is required</span>
+        <span *ngIf="this.loginForm.controls['email'].touched && this.loginForm.controls['email'].errors?.['invalid']" class="login__content__form__errors__message">Email is invalid</span>
+        <span *ngIf="this.loginForm.controls['password'].touched && this.loginForm.controls['password'].errors?.['required']" class="login__content__form__errors__message">Password is required</span>
+        <span *ngIf="this.loginForm.controls['password'].touched && this.loginForm.controls['password'].errors?.['minlength']" class="login__content__form__errors__message">Password must be at least 6 characters</span>
+        <span *ngIf="this.errorMessage != ''" class="login__content__form__errors__message">{{this.errorMessage}}</span>
       </div>
 
       <button *ngIf="this.isLogin" class="login__content__form__button" type="submit" [disabled]="loginForm.invalid">Login</button>

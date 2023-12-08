@@ -1,5 +1,5 @@
 .card{
-  height: 50rem;
+  height: 70rem;
   border-radius: var(--border-radius-medium);
   overflow: hidden;
   box-shadow: var(--box-shadow);
@@ -10,7 +10,7 @@
 
   &__imageContainer{
     width: 100%;
-    height: 23rem;
+    height: 40rem;
 
     overflow: hidden;
     position: relative;
@@ -22,7 +22,7 @@
 
   &__image{
     width: 100%;
-    height: 30rem;
+    height: 40rem;
   }
 
   &__content{
