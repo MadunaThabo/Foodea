@@ -15,22 +15,45 @@
   </div>
 
   <div class="card filter__card">
-    <h3 class="filter__card__subtitle">Content Type</h3>
-    <ul class="filter__card__list">
-      <li class="filter__card__list-item">An item</li>
-      <li class="filter__card__list-item">A second item</li>
-      <li class="filter__card__list-item">A third item</li>
-    </ul>
+    <h3 class="filter__card__subtitle">cuisine</h3>
+    <select [(ngModel)]="this.selectedCuisine" name="cuisine" class="filter__card__select">
+      <option value="" class="filter__card__select__option" value="" selected>Any</option>
+      <option class="filter__card__select__option" *ngFor="let cuisine of cuisines" value="{{cuisine}}">{{cuisine}}</option>
+    </select>
   </div>
 
   <div class="card filter__card">
+    <h3 class="filter__card__subtitle">Diet</h3>
+    <select [(ngModel)]="this.selectedDiet" name="diet" class="filter__card__select">
+      <option value="" class="filter__card__select__option" value="" selected>Any</option>
+      <option class="filter__card__select__option" *ngFor="let diet of diets" value="{{diet}}">{{diet}}</option>
+    </select>
+  </div>
+
+  <div class="card filter__card">
+    <h3 class="filter__card__subtitle">Meal Type</h3>
+    <select  [(ngModel)]="this.selectedMealType" name="dietType" class="filter__card__select">
+      <option value="" class="filter__card__select__option" value="" selected>Any</option>
+      <option class="filter__card__select__option" *ngFor="let mealType of mealTypes" value="{{mealType}}">{{mealType}}</option>
+    </select>
+  </div>
+
+  <div class="card filter__card">
+    <h3 class="filter__card__subtitle">Meal Preparation</h3>
+    <div class="filter__card__input__number">
+      <input [(ngModel)]="this.selectedMaxReadyTime" class="filter__card__number__input" ngModel="" type="number" id="quantity" name="quantity" min="1" max="999999">
+      <label class="filter__card__number__label" for="volume">Minutes</label>
+    </div>
+  </div>
+
+  <!-- <div class="card filter__card">
     <h3 class="filter__card__subtitle">Another Type</h3>
     <ul class="filter__card__list">
       <li class="filter__card__list-item">An item</li>
       <li class="filter__card__list-item">A second item</li>
       <li class="filter__card__list-item">A third item</li>
     </ul>
-  </div>
+  </div> -->
 
-  <button class="btn-primary">Apply</button>
+  <button class="btn-primary" (click)="applyFileters()">Apply</button>
 </div>
