@@ -99,11 +99,11 @@ export class FilterComponent {
     this.ingredientText = "";
   }
 
-  removeIngredient(_t13: string) {
-    this.ingredients = this.ingredients.filter(t => t !== _t13);
+  removeIngredient(ingredient: string) {
+    this.ingredients = this.ingredients.filter(item => item !== ingredient);
   }
 
-  applyFileters() {
+  applyFilters() {
     console.log('apply filters');
     console.log('ingredients', this.ingredients);
     console.log('selected cuisince', this.selectedCuisine);
