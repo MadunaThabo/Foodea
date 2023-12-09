@@ -4,15 +4,14 @@
   <div class="card filter__card">
     <h3 class="filter__card__subtitle">Filter By Ingredients</h3>
 
-    <input  type="text" class="filter__card__search-input" placeholder="Search Ingredients">
+    <input type="text" class="filter__card__search-input" [(ngModel)]="this.ingredientText" (keyup.enter)="addIngredient()" placeholder="Search Ingredients">
+
     <h3 class="filter__card__subtitle">Your Ingredients</h3>
     <ul class="filter__card__search-list">
-      <li class="filter__card__search-list-item">ingredient 1 <span class="filter__card__search-list-item__remove">&#x2715;</span></li>
-      <li class="filter__card__search-list-item">ingredient 2 <span class="filter__card__search-list-item__remove">&#x2715;</span></li>
-      <li class="filter__card__search-list-item">ingredient 3 <span class="filter__card__search-list-item__remove">&#x2715;</span></li>
-      <li class="filter__card__search-list-item">ingredient 5 <span class="filter__card__search-list-item__remove">&#x2715;</span></li>
-      <li class="filter__card__search-list-item">ingredient 5 <span class="filter__card__search-list-item__remove">&#x2715;</span></li>
+      <li *ngFor="let ingredient of ingredients" class="filter__card__search-list-item">{{ingredient}}<span (click)="removeIngredient(ingredient)" class="filter__card__search-list-item__remove">&#x2715;</span></li>
     </ul>
+
+
   </div>
 
   <div class="card filter__card">

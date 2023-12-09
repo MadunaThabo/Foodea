@@ -49,6 +49,7 @@
 
       &-list{
         display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
         list-style: none;
 
@@ -63,6 +64,7 @@
 
           &__remove{
             margin-left: .8rem;
+            cursor: pointer;
           }
         }
       }
