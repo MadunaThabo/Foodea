@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, of, throwError } from 'rxjs';
-import { User } from '../../models/user.model';
+import { UserModel } from '../../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,14 +14,14 @@ export class UserService {
 
   }
 
-  login(email: string, password: string): Observable<User | Error> {
+  login(email: string, password: string): Observable<UserModel | Error> {
     const loginData = {
       email: email,
       password: password
     };
     const loginUrl = `${this.apiUrl}/login`;
 
-    return this.httpClient.post<User>(loginUrl, loginData).pipe(
+    return this.httpClient.post<UserModel>(loginUrl, loginData).pipe(
       catchError((error) => {
         // Handle specific errors based on status code or error object
         if (error.status === 401) {

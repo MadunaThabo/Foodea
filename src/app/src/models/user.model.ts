@@ -1,5 +1,4 @@
-
-export interface User {
+export interface UserModel {
   UserId: string
   name: string,
   surname: string,

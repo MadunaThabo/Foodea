@@ -4,6 +4,8 @@ import { RouterOutlet } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { NgxsModule } from '@ngxs/store';
+import { UserState } from './src/states/user.state';
 
 @Component({
   selector: 'app-root',
@@ -14,12 +16,18 @@ import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/materia
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatDialogModule
-
+    MatDialogModule,
+    NgxsModule,
+    NgxsModule.forRoot(
+      [UserState],{
+        developmentMode: !environment.production
+      }
+    ),
   ],
   providers: [
     { provide: MatDialogRef, useValue: {} },
     { provide: MAT_DIALOG_DATA, useValue: {} },
+    
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -27,3 +35,11 @@ import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/materia
 export class AppComponent {
   title = 'Foodea';
 }
+
+
+//TODO: add this
+// NgxsModule.forRoot(
+//   [UserState],
+//   {
+//   developmentMode:!environment.production
+// }),
