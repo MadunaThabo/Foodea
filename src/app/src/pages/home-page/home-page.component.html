@@ -1,10 +1,22 @@
 <!-- <a href="/recipe-view/1">learn more</a> -->
-<div class="homePage__container">
+<div class="homepage__container">
   <app-navigation></app-navigation>
+  <main>
+      <app-carousel></app-carousel>
 
-
-  the content will go header
-
-  
+      <div class="homepage__content">
+        <app-filter class="homepage__content__filter"></app-filter>
+        <div class="homepage__content__recipeAndArticles">
+          <span class="homepage__content__recipeAndArticles__title">
+            Recipe and Articles
+          </span>
+          <div class="homepage__content__recipeAndArticles__content">
+            <app-card *ngFor="let recipe of recipes" [recipe]="recipe" class="homepage__content__recipeAndArticles__content__card"></app-card>
+          </div>
+          <app-pagination></app-pagination>
+        </div>
+      </div>
+  </main>
 </div>
 
+<app-footer></app-footer>

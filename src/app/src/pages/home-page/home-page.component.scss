@@ -1,11 +1,56 @@
-.homePage{
-  &__container{
-    // background-color: var(--color-primary);
-    // display: flex;
-    // // flex-direction: column;
-    // // align-items: center;
-    // justify-content: center;
-    // max-width: 120rem;
-    // margin: 7rem;
+.homepage{
+  &__content{
+    background-color: white;
+    background-image: linear-gradient(to right bottom,rgba(#eb2f64, 0.5) , rgba(#FF3366, 0.5)), url(../../../../assets/carousel1.jpg);
+    background-size: cover;
+    margin: 2rem 8rem;
+    padding: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 1.5rem 4rem rgba(0,0,0,0.15);
+    display: flex;
+
+    &__filter{
+      flex: 0 0 30%;
+    }
+
+    &__recipeAndArticles{
+      background-color: var(--color-grey-light-1);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem;
+      margin: 2rem;
+      border-radius: var(--border-radius-small);
+      box-shadow: var(--box-shadow);
+      border: var(--line);
+
+      &__title{
+        font-size: 2rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        margin: 2rem;
+        letter-spacing: .5rem;
+        color: var(--color-grey-dark-1);
+      }
+
+      &__content{
+        display: flex;
+        align-content: start;
+        flex-wrap: wrap;
+        margin: 2rem;
+
+
+        &__card{
+          flex: 0 0 30%;
+          margin: 1rem;
+          align-content: stretch;
+        }
+      }
+    }
+
   }
 }
+
+
+

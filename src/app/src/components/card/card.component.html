@@ -1,0 +1,20 @@
+<div class="card">
+  <!-- TODO: Add tags to show if its a recipe or a blog post
+  <div class="card__tag">
+    <span class="card__tag__text">recipe</span>
+  </div> -->
+  <div class="card__imageContainer">
+    <img class="card__image" src="{{ recipe.image }}" alt="{{ recipe.title }}" />
+  </div>
+  <div class="card__content">
+    <h2 class="card__content__subtitle">
+      {{ recipe.name | slice:0:47 }}{{ recipe.description.length > 47 ? '...' : '' }}
+    </h2>
+    <div class="card__content__description">
+      {{ recipe.description | slice:0:250 }}{{ recipe.description.length > 250 ? '...' : '' }}
+    </div>
+    <div class="card__content__button">
+      <button class="btn-primary" routerLink="/recipe-view/{{recipe.id}}">View</button>
+    </div>
+  </div>
+</div>

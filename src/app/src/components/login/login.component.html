@@ -1,0 +1,42 @@
+<div class="login" id="login">
+
+  <div class="login__close">
+    <button (click)="closePopup()" class="login__close__button">X</button>
+  </div>
+
+  <div class="login__content">
+    <div class="login__content__logo ">
+    <img src="../../../../assets/logo.svg" alt="navigation__logo" class="login__content__logo--image">
+    <span class="login__content__logo--name">FooDea</span>
+  </div>
+
+  <div class="login__content__loginorsignup">
+      <span *ngIf="this.isLogin" class="login__content__loginorsignup__heading login__content__loginorsignup__heading__login active" (click)="switchLoginOrSignUpTab(true)">Login</span>
+      <span *ngIf="this.isLogin" class="login__content__loginorsignup__heading login__content__loginorsignup__heading__signup" (click)="switchLoginOrSignUpTab(false)">Sign Up</span>
+      <span *ngIf="!this.isLogin" class="login__content__loginorsignup__heading login__content__loginorsignup__heading__login" (click)="switchLoginOrSignUpTab(true)">Login</span>
+      <span *ngIf="!this.isLogin" class="login__content__loginorsignup__heading login__content__loginorsignup__heading__signup active" (click)="switchLoginOrSignUpTab(false)">Sign Up</span>
+  </div>
+    <form class="login__content__form" [formGroup]="this.loginForm" (ngSubmit)="onSubmit()">
+      <div class="login__content__form__email">
+        <label class="login__content__form__email__label" for="email">Email:</label>
+        <input class="login__content__form__email__input" type="email" id="email" formControlName="email" placeholder="user@email.com" />
+      </div>
+
+      <div class="login__content__form__password">
+        <label class="login__content__form__password__label" for="password">Password:</label>
+        <input class="login__content__form__password__input" type="password" id="password" formControlName="password" placeholder="*****"/>
+      </div>
+
+      <div class="login__content__form__errors">
+        <span *ngIf="this.loginForm.controls['email'].touched && this.loginForm.controls['email'].errors?.['required']" class="login__content__form__errors__message">Email is required</span>
+        <span *ngIf="this.loginForm.controls['email'].touched && this.loginForm.controls['email'].errors?.['invalid']" class="login__content__form__errors__message">Email is invalid</span>
+        <span *ngIf="this.loginForm.controls['password'].touched && this.loginForm.controls['password'].errors?.['required']" class="login__content__form__errors__message">Password is required</span>
+        <span *ngIf="this.loginForm.controls['password'].touched && this.loginForm.controls['password'].errors?.['minlength']" class="login__content__form__errors__message">Password must be at least 6 characters</span>
+        <span *ngIf="(this.error$ | async) != ''" class="login__content__form__errors__message">{{this.error$| async}}</span>
+      </div>
+
+      <button *ngIf="this.isLogin" class="login__content__form__button" type="submit" [disabled]="loginForm.invalid">Login</button>
+      <button *ngIf="!this.isLogin" class="login__content__form__button" type="submit" [disabled]="loginForm.invalid">Sign Up</button>
+    </form>
+  </div>
+</div>

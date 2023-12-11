@@ -1,2 +1,36 @@
-<p>recipe-view works!</p>
-<a href="home" class="home">go home-page </a>
+<div class="recipepage__container">
+  <app-navigation></app-navigation>
+
+  <div *ngIf="recipe" class="content">
+    <h2 class="content__heading">{{recipe!.name}}</h2>
+
+    <div class="content__image">
+      <img [src]="recipe!.image" alt="recipe image" class="content__image__img">
+    </div>
+
+    <div class="content__description">
+      <div class="content__subtitle">Description</div>
+      <div class="content__description__text">
+        {{recipe!.description}}
+      </div>
+    </div>
+
+    <div class="content__ingredients">
+      <div class="content__subtitle">Ingredients</div>
+      <ul class="content__ingredients__list">
+        <li *ngFor="let ingredient of recipe!.ingredients" class="content__ingredients__list__item">{{ingredient}}</li>
+      </ul>
+    </div>
+
+    <div class="content__instructions">
+      <div class="content__subtitle">instructions</div>
+      <ol class="content__instructions__list">
+        <li *ngFor="let instruction of recipe!.instructions" class="content__instructions__list__item">{{instruction}}</li>
+      </ol>
+    </div>
+  </div>
+
+  <div *ngIf="!recipe"class="content">
+    <h2 class="content__heading">Recipe not found</h2>
+  </div>
+</div>
