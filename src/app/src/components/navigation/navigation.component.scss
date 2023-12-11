@@ -1,5 +1,4 @@
 .navigation {
-
   background-color: var(--color-grey-light-1);
   height: 7rem;
   display: flex;
@@ -10,9 +9,9 @@
   box-shadow: 0 1rem 2rem rgba(0,0,0,0.1);
 
   &__logo{
-
     display: flex;
     align-items: center;
+    cursor: pointer;
 
     &--image {
 
@@ -20,7 +19,6 @@
     }
 
     &--name {
-
       text-decoration: none;
       text-transform: uppercase;
       font-size: 2rem;
@@ -59,14 +57,12 @@
         color: var(--color-grey-dark-3);
       }
 
-
       &__icon{
         background-color: yellow;
         height: 2.5rem;
         width: 2.5rem;
       }
     }
-
 
     &--button{
       border: none;
@@ -84,7 +80,6 @@
       }
     }
   }
-
 
   &__user{
     display: flex;
@@ -139,5 +134,4 @@
       outline: none;
     }
   }
-
 }

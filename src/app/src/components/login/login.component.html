@@ -32,7 +32,7 @@
         <span *ngIf="this.loginForm.controls['email'].touched && this.loginForm.controls['email'].errors?.['invalid']" class="login__content__form__errors__message">Email is invalid</span>
         <span *ngIf="this.loginForm.controls['password'].touched && this.loginForm.controls['password'].errors?.['required']" class="login__content__form__errors__message">Password is required</span>
         <span *ngIf="this.loginForm.controls['password'].touched && this.loginForm.controls['password'].errors?.['minlength']" class="login__content__form__errors__message">Password must be at least 6 characters</span>
-        <span *ngIf="this.errorMessage != ''" class="login__content__form__errors__message">{{this.errorMessage}}</span>
+        <span *ngIf="(this.error$ | async) != ''" class="login__content__form__errors__message">{{this.error$| async}}</span>
       </div>
 
       <button *ngIf="this.isLogin" class="login__content__form__button" type="submit" [disabled]="loginForm.invalid">Login</button>

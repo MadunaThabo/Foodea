@@ -30,7 +30,7 @@ export class UserService {
           return of(new Error('Internal server error, please try again later.'));
         }
         // Return generic error message for unknown errors
-        return of(new Error('An error occurred, please try again later.'));
+        return of(new Error('An error occurred, please try again.'));
       })
     );
   }

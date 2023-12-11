@@ -18,16 +18,12 @@ import { UserState } from './src/states/user.state';
     HttpClientModule,
     MatDialogModule,
     NgxsModule,
-    NgxsModule.forRoot(
-      [UserState],{
-        developmentMode: !environment.production
-      }
-    ),
+    NgxsModule
   ],
   providers: [
     { provide: MatDialogRef, useValue: {} },
     { provide: MAT_DIALOG_DATA, useValue: {} },
-    
+
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
