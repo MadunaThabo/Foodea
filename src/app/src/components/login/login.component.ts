@@ -15,9 +15,6 @@ import { loginUserAction } from '../../actions/user.action';
   selector: 'app-login',
   standalone: true,
   imports: [FormsModule, ReactiveFormsModule, CommonModule,],
-  providers: [
-
-  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })

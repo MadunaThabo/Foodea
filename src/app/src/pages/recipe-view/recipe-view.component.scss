@@ -58,6 +58,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 2rem 5rem;
 
     &__list{
 
@@ -66,7 +67,9 @@
       color: var(--color-grey-dark-2);
       columns: 10;
       column-gap: 5rem;
-      // column-rule: 1px solid var(--color-grey-light-2);
+      display: flex;
+      align-content: center;
+      flex-wrap: wrap;
 
       &__item{
         margin-bottom: 1rem;
@@ -78,6 +81,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 2rem 5rem;
 
     &__list{
       font-size: 1.5rem;

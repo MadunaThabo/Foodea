@@ -24,6 +24,7 @@
       border-radius: var(--border-radius-small);
       box-shadow: var(--box-shadow);
       border: var(--line);
+      position: relative;
 
       &__title{
         font-size: 2rem;
@@ -47,8 +48,26 @@
           align-content: stretch;
         }
       }
+
+      &__pagination{
+        position: absolute;
+        bottom: 0;
+        // right: 0;
+        margin-top: 5rem;
+      }
     }
 
+    &__error{
+      flex-grow: 1;
+      margin: 2rem;
+    }
+
+  }
+
+
+  &__loader{
+    flex: 1;
+    margin: 2rem;
   }
 }
 

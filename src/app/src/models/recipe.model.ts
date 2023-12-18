@@ -1,8 +1,39 @@
-export interface Recipe {
+export interface RecipeModel{
   id: number;
-  name: string;
+  aggregateLikes: number;
+  // analyzedInstructions: List<AnalyzedInstruction>;
+  analyzedInstructions: any[];
+  cheap: boolean;
+  cookingMinutes: number;
+  creditsText: string;
+  cuisines: string[];
+  dairyFree: boolean;
+  diets: string[];
+  dishTypes: string[];
+  // extendedIngredients: List<ExtendedIngredient>;
+  extendedIngredients: any[];
+  gaps: string;
+  glutenFree: boolean;
+  healthScore: number;
   image: string;
-  description: string;
-  ingredients: string[];
-  instructions: string[];
+  imageType: string;
+  instructions: string;
+  license: string;
+  lowFodmap: boolean;
+  occasions: string[];
+  // originalId: object;
+  preparationMinutes: number;
+  pricePerServing: number;
+  servings: number;
+  sourceName: string;
+  sourceUrl: string;
+  spoonacularSourceUrl: string;
+  summary: string;
+  sustainable: boolean;
+  title: string;
+  vegan: boolean;
+  vegetarian: boolean;
+  veryHealthy: boolean;
+  veryPopular: boolean;
+  weightWatcherSmartPoints: number;
 }

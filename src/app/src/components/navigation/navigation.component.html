@@ -7,7 +7,7 @@
     </div>
 
     <div class="navigation__searchbar">
-      <input  type="text" class="navigation__searchbar--input" placeholder="Search FooDea">
+      <input  type="text" class="navigation__searchbar--input" placeholder="Search FooDea" [(ngModel)]="searchTerm" (keyup.enter)="searchRecipes()">
       <!-- <button class="navigation__searchbar--button">Search</button> -->
     </div>
 

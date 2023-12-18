@@ -8,10 +8,11 @@
   </div>
   <div class="card__content">
     <h2 class="card__content__subtitle">
-      {{ recipe.name | slice:0:47 }}{{ recipe.description.length > 47 ? '...' : '' }}
+      {{ recipe.title | slice:0:47 }}{{ recipe.title.length > 47 ? '...' : '' }}
     </h2>
     <div class="card__content__description">
-      {{ recipe.description | slice:0:250 }}{{ recipe.description.length > 250 ? '...' : '' }}
+      <div [innerHTML]="(recipe.summary| slice:0:250)"></div>
+      <!-- {{ recipe.summary | slice:0:250 }}{{ recipe.summary.length > 250 ? '...' : '' }} -->
     </div>
     <div class="card__content__button">
       <button class="btn-primary" routerLink="/recipe-view/{{recipe.id}}">View</button>
