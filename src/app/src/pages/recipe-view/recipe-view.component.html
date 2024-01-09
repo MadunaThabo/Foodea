@@ -1,7 +1,11 @@
 <div class="recipepage__container">
   <app-navigation></app-navigation>
 
-  <div *ngIf="recipe" class="content">
+  <div *ngIf="(loading$ | async)" class="content">
+    <app-loader class="homepage__loader"></app-loader>
+  </div>
+
+  <div *ngIf="!(loading$ | async) && !(recipesError$ |async)" class="content">
     <h2 class="content__heading">{{(recipe$ | async)!.title}}</h2>
 
     <div class="content__image">
@@ -11,7 +15,6 @@
     <div class="content__description">
       <div class="content__subtitle">Description</div>
       <div class="content__description__text" [innerHTML]="(recipe$ | async)!.summary">
-        <!-- {{(recipe$ | async)!.summary}} -->
       </div>
     </div>
 
@@ -30,7 +33,8 @@
     </div>
   </div>
 
-  <div *ngIf="!(recipe$ | async)"class="content">
-    <h2 class="content__heading">Recipe not found</h2>
+  <div *ngIf="!(loading$ | async) &&  (recipesError$ |async)"class="content">
+    <app-error *ngIf="!(loading$ | async) &&  (recipesError$ |async)" class="recipepage__content__error"></app-error>
   </div>
 </div>
+<app-footer></app-footer>

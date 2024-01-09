@@ -31,11 +31,3 @@ import { UserState } from './src/states/user.state';
 export class AppComponent {
   title = 'Foodea';
 }
-
-
-//TODO: add this
-// NgxsModule.forRoot(
-//   [UserState],
-//   {
-//   developmentMode:!environment.production
-// }),

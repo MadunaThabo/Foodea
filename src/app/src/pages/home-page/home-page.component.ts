@@ -24,33 +24,30 @@ import { LoaderComponent } from "../../components/loader/loader.component";
 })
 export class HomePageComponent {
   @Select(RecipeState.getRecipes) recipes$!: Observable<RecipeModel[]>
-  @Select(RecipeState.getError) recipesError$!: Observable<boolean>
-  loading: boolean = true;
+  @Select(RecipeState.getError) recipesError$!: Observable<string>
+  @Select(RecipeState.getLoading) loading$!: Observable<boolean>
+  // loading: boolean = true;
 
   constructor(private store: Store) {
 
   }
 
-  ngOnInit(){
+  async ngOnInit(){
     console.log('ngOnInit')
-    this.store.dispatch(new GetRandomRecipesAction()).subscribe({
+    // this.loading = true;/
+    await this.getRecipes();
+  }
+
+  async getRecipes(){
+    await this.store.dispatch(new GetRandomRecipesAction()).subscribe({
       next: (result)=>{
-        console.log('fetched recipes', result)
-        this.loading = false;
+        console.log('swicthing', result)
+        // this.loading = false;
 
       },
       error: (error)=>{
         console.log('can to an error...',error)
-        this.loading = false;
-      }
-    })
-  }
-
-  async test(){
-    console.log('test')
-    this.recipes$.subscribe({
-      next: (result)=>{
-        console.log('result', result)
+        // this.loading$ = false;
       }
     })
   }

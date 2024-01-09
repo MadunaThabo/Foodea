@@ -2,7 +2,7 @@
   <h2 class="filter__title">Filters</h2>
 
   <div class="card filter__card">
-    <h3 class="filter__card__subtitle">Filter By Ingredients</h3>
+    <h3 class="filter__card__subtitle">Included Ingredients</h3>
     <input type="text" class="filter__card__search-input" [(ngModel)]="this.ingredientText" (keyup.enter)="addIngredient()" placeholder="Search Ingredients">
     <h3 class="filter__card__subtitle">Your Ingredients</h3>
     <ul class="filter__card__search-list">
@@ -51,4 +51,6 @@
     </ul>
   </div> -->
   <button class="btn-primary" (click)="applyFilters()">Apply</button>
+  <br>
+  <button class="btn-primary" (click)="resetFilters()">Reset</button>
 </div>

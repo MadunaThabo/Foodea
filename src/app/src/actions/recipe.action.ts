@@ -15,3 +15,9 @@ export class SearchRecipesAction {
   constructor(public searchTerm: string) {
   }
 }
+
+export class UpdateRecipeFiltersAction {
+  static readonly type = '[Recipe] search recipes';
+  constructor(public ingredients: string[], public selectedCuisine: string, public selectedDiet: string, public selectedMealType: string, public selectedMaxReadyTime: number) {
+  }
+}

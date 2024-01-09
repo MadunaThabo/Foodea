@@ -5,21 +5,20 @@
       <app-carousel></app-carousel>
 
       <div class="homepage__content">
-        <app-filter class="homepage__content__filter"></app-filter>
-        <div *ngIf="!(recipesError$ |async) && !loading" class="homepage__content__recipeAndArticles">
-          <span class="homepage__content__recipeAndArticles__title" (click)="test()">
+        <!-- <app-filter class="homepage__content__filter"></app-filter> -->
+        <app-loader *ngIf="(loading$ | async)" class="homepage__loader"></app-loader>
+
+        <div *ngIf=" !(loading$ | async) && !(recipesError$ |async) " class="homepage__content__recipeAndArticles">
+          <span class="homepage__content__recipeAndArticles__title">
             Recipe and Articles
           </span>
           <div class="homepage__content__recipeAndArticles__content">
-            <!-- <app-card *ngFor="let recipe of recipes" [recipe]="recipe" class="homepage__content__recipeAndArticles__content__card"></app-card> -->
             <app-card *ngFor="let recipe of (recipes$ | async)" [recipe]="recipe" class="homepage__content__recipeAndArticles__content__card"></app-card>
           </div>
           <app-pagination class="homepage__content__recipeAndArticles__pagination"></app-pagination>
         </div>
 
-        <app-error *ngIf="(recipesError$ |async) && !loading" class="homepage__content__error"></app-error>
-
-        <app-loader *ngIf="loading" class="homepage__loader"></app-loader>
+        <app-error *ngIf=" !(loading$ | async) && (recipesError$ |async)" class="homepage__content__error"></app-error>
       </div>
   </main>
 </div>
