@@ -1,5 +1,7 @@
 # Foodea
 
+The project is a small food recipe website, enjoy!... 
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
 
 ## Development server
