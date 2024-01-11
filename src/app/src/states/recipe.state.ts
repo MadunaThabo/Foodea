@@ -126,12 +126,23 @@ export class RecipeState {
           });
         }
         else {
-          ctx.patchState({
-            ...state,
-            randomRecipe: recipe.recipes as RecipeModel[] ,
-            error: '',
-            loading: false
-          });
+          if(action.add){
+            ctx.patchState({
+              ...state,
+              randomRecipe: [...state.randomRecipe, ...recipe.recipes] as RecipeModel[] ,
+              error: '',
+              loading: false
+            });
+
+          }
+          else{
+            ctx.patchState({
+              ...state,
+              randomRecipe: recipe.recipes as RecipeModel[] ,
+              error: '',
+              loading: false
+            });
+          }
         }
       }
     });
@@ -174,7 +185,6 @@ export class RecipeState {
       ...state,
       loading: true
     });
-    // TODO: test this first!!!!!!!!!!!!!!!!
     var body = {
       query: action.searchTerm,
       cuisine: state.recipeFilters.cuisine,

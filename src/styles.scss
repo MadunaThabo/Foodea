@@ -66,6 +66,15 @@ html{
   font-size: 62.5%; //1rem == 10px ==10px/16px
   box-sizing: border-box;
 
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+    border-radius: 5px;
+  }
+
 }
 
 body{

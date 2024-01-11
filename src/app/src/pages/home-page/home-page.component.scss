@@ -19,19 +19,34 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      // justify-content: center;
       padding: 3rem;
       margin: 2rem;
       border-radius: var(--border-radius-small);
       box-shadow: var(--box-shadow);
       border: var(--line);
       position: relative;
+      overflow: scroll;
+      max-height: 100rem;
+
+
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--color-primary);
+        border-radius: 5px;
+      }
 
       &__title{
+        align-self: center;
         font-size: 2rem;
         font-weight: 300;
         text-transform: uppercase;
-        margin: 2rem;
+        margin: 3rem;
         letter-spacing: .5rem;
+        // width: 100%;
         color: var(--color-grey-dark-1);
       }
 
@@ -70,6 +85,26 @@
     margin: 2rem;
   }
 }
+// TODO: set the position correctly!!!!!!!!!!
 
+.carousel-control-prev{
+  background-color: red;
+  // left: -130px;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 5000rem;
+  align-self: start;
+}
 
+.carousel-control-next{
+  background-color: red;
+  // left: 1400px;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 5000rem;
+}
 
+.carousel-item.active, .carousel-item-next, .carousel-item-prev {
+  display: flex;
+  flex-direction: column;
+}

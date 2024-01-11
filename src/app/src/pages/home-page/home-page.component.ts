@@ -51,4 +51,19 @@ export class HomePageComponent {
       }
     })
   }
+
+  async addMoreRecipes(){
+    
+    await this.store.dispatch(new GetRandomRecipesAction(12, true)).subscribe({
+      next: (result)=>{
+        console.log('swicthing', result)
+        // this.loading = false;
+
+      },
+      error: (error)=>{
+        console.log('can to an error...',error)
+        // this.loading$ = false;
+      }
+    })
+  }
 }

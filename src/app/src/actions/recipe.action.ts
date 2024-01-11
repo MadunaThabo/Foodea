@@ -1,6 +1,6 @@
 export class GetRandomRecipesAction {
   static readonly type = '[Recipe] fetch random number of recipes';
-  constructor(public numberOfRecipes: number = 6) {
+  constructor(public numberOfRecipes: number = 12, public add: boolean = false) {
   }
 }
 
