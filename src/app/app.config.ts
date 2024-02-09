@@ -6,6 +6,7 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { UserState } from './src/states/user.state';
+import { RecipeState } from './src/states/recipe.state';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,7 +15,10 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     importProvidersFrom(
       NgxsModule.forRoot(
-        [UserState]
+        [
+          UserState,
+          RecipeState
+        ]
     ),
     NgxsReduxDevtoolsPluginModule.forRoot()
     )]

@@ -1,6 +1,31 @@
 .content{
   background-color: white;
   background-size: cover;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      #fff 12px, 0,
+      #eb2f64 15px, 0,
+      #eb2f64 20px, 0,
+      #fff 100%
+    ),
+    radial-gradient(
+      circle closest-side,
+      rgba(255,255,255,0) 88%,
+      #fff 100%
+    ),
+    radial-gradient(
+      circle at 22px 8px,
+      #eb2f64 40%,
+      #eb2f64 40%,
+      #eb2f64 100%
+    );
+
+  background-size: 32px 8px, 32px 16px, 32px 16px;
+  background-repeat: space no-repeat;
+  background-position: center top, center 6px, center 6px;
+
   margin: 2rem 8rem;
   display: flex;
   flex-direction: column;
@@ -58,6 +83,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 2rem 5rem;
 
     &__list{
 
@@ -66,7 +92,9 @@
       color: var(--color-grey-dark-2);
       columns: 10;
       column-gap: 5rem;
-      // column-rule: 1px solid var(--color-grey-light-2);
+      display: flex;
+      align-content: center;
+      flex-wrap: wrap;
 
       &__item{
         margin-bottom: 1rem;
@@ -78,6 +106,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 2rem 5rem;
 
     &__list{
       font-size: 1.5rem;

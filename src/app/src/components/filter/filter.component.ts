@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RecipeState } from '../../states/recipe.state';
+import { Observable } from 'rxjs';
+import { Select, Store } from '@ngxs/store';
+import { UpdateRecipeFiltersAction } from '../../actions/recipe.action';
+import { RecipeFilterModel } from '../../models/recipeFilter.model';
 
 @Component({
   selector: 'app-filter',
@@ -10,24 +15,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './filter.component.scss'
 })
 export class FilterComponent {
-
+  //TODO: make sure all the events for the filters are working
   ingredients: string[] = [
-    'tomato',
-    'cheese',
-    'pepperoni',
-    'mushrooms',
-    'onions',
-    'olives',
-    'pineapple',
-    'ham',
-    'bacon',
-    'chicken',
-    'beef',
-    'sausage',
-    'peppers',
-    'spinach',
-    'jalapenos',
-    'anchovies'
   ];
   cuisines: string[] = [
     "African",
@@ -87,12 +76,14 @@ export class FilterComponent {
     'snack',
     'drink',
   ];
+  @Select(RecipeState.getRecipeFilters)  recipeFilter$!: Observable<RecipeFilterModel>;
+
   ingredientText: string = '';
   selectedCuisine: string = '';
   selectedDiet: string = '';
   selectedMealType: string = '';
   selectedMaxReadyTime: number = 0;
-  constructor() {}
+  constructor(private store: Store) {}
 
   addIngredient() {
     this.ingredients.push(this.ingredientText);
@@ -110,5 +101,15 @@ export class FilterComponent {
     console.log('selected diet', this.selectedDiet);
     console.log('selected meal type', this.selectedMealType);
     console.log('selected max ready time', this.selectedMaxReadyTime);
+    this.store.dispatch(new UpdateRecipeFiltersAction(this.ingredients, this.selectedCuisine, this.selectedDiet, this.selectedMealType, this.selectedMaxReadyTime));
+  }
+
+  resetFilters() {
+    this.ingredients = [];
+    this.selectedCuisine = '';
+    this.selectedDiet = '';
+    this.selectedMealType = '';
+    this.selectedMaxReadyTime = 0;
+    this.store.dispatch(new UpdateRecipeFiltersAction(this.ingredients, this.selectedCuisine, this.selectedDiet, this.selectedMealType, this.selectedMaxReadyTime));
   }
 }

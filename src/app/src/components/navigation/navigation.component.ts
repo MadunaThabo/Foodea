@@ -8,24 +8,26 @@ import { UserState } from '../../states/user.state';
 import { Observable } from 'rxjs';
 import { UserModel } from '../../models/user.model';
 import { UserStateModel } from '../../models/userState.model';
+import { SearchRecipesAction } from '../../actions/recipe.action';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-navigation',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss'
 })
 export class NavigationComponent {
-
   @Select (UserState.getLoggedIn) loggedIn$!: Observable<boolean>;
   @Select (UserState.getUser) user$!: Observable<UserModel>;
+  searchTerm: string = '';
 
   constructor(public matDialog: MatDialog, private store: Store, private router: Router){
 
   }
-  
+
   goHome() {
     this.router.navigate(['/']);
   }
@@ -41,5 +43,11 @@ export class NavigationComponent {
       }
     }
     );
+  }
+
+  searchRecipes() {
+    console.log('searchRecipes', this.searchTerm);
+    this.router.navigate(['/']);
+    this.store.dispatch(new SearchRecipesAction(this.searchTerm))
   }
 }

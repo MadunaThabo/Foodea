@@ -56,29 +56,29 @@
     box-shadow: var(--shadow-dark);
 
     &__logo{
-        display: flex;
-        flex-direction: column;
+      display: flex;
+      flex-direction: column;
 
-        &--image{
-          animation: rotate 5s infinite;
-          height: 15rem;
-          width: 15rem;
-        }
-
-        &--name{
-          font-size: 1.5rem;
-          font-weight: 600;
-          text-decoration: none;
-          text-transform: uppercase;
-          text-align: center;
-          letter-spacing: 0.2rem;
-          color: var(--color-grey-dark-1);
-          font-family: 'Josefin Sans', sans-serif;
-          margin: .5rem 2rem 0 2rem;
-          border-bottom: var(--line);
-          padding-bottom: 1rem;
-        }
+      &--image{
+        animation: rotate 5s infinite;
+        height: 15rem;
+        width: 15rem;
       }
+
+      &--name{
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 0.2rem;
+        color: var(--color-grey-dark-1);
+        font-family: 'Josefin Sans', sans-serif;
+        margin: .5rem 2rem 0 2rem;
+        border-bottom: var(--line);
+        padding-bottom: 1rem;
+      }
+    }
 
 
     &__loginorsignup{

@@ -5,18 +5,50 @@
       <app-carousel></app-carousel>
 
       <div class="homepage__content">
-        <app-filter class="homepage__content__filter"></app-filter>
-        <div class="homepage__content__recipeAndArticles">
-          <span class="homepage__content__recipeAndArticles__title">
-            Recipe and Articles
-          </span>
+        <!-- <app-filter class="homepage__content__filter"></app-filter> -->
+        <app-loader *ngIf="(loading$ | async)" class="homepage__loader"></app-loader>
+
+        <div *ngIf=" !(loading$ | async) && !(recipesError$ |async) " class="homepage__content__recipeAndArticles">
+
+          <span class="homepage__content__recipeAndArticles__title"> Recipes</span>
           <div class="homepage__content__recipeAndArticles__content">
-            <app-card *ngFor="let recipe of recipes" [recipe]="recipe" class="homepage__content__recipeAndArticles__content__card"></app-card>
+            <app-card *ngFor="let recipe of (recipes$ | async)" [recipe]="recipe" class="homepage__content__recipeAndArticles__content__card"></app-card>
           </div>
-          <app-pagination></app-pagination>
+          <!-- <app-pagination class="homepage__content__recipeAndArticles__pagination"></app-pagination> -->
+          <button class="btn-primary" (click)="addMoreRecipes()">Load More</button>
+
         </div>
+
+        <!-- Future Feature -->
+        <!-- <div *ngIf=" !(loading$ | async) && !(recipesError$ |async) " class="homepage__content__recipeAndArticles">
+          <div id="carouselExampleCaptions2" class="carousel slide carousel-fade">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                  <span class="homepage__content__recipeAndArticles__title"> Recipes </span>
+                  <div class="homepage__content__recipeAndArticles__content">
+                    <app-card *ngFor="let recipe of (recipes$ | async)" [recipe]="recipe" class="homepage__content__recipeAndArticles__content__card"></app-card>
+                  </div>
+
+                  <button class="btn-primary" (click)="addMoreRecipes()">Load More</button>
+              </div>
+              <div class="carousel-item">
+                <span class="homepage__content__recipeAndArticles__title"> Articles coming soon </span>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div> -->
+
+        <!-- TODO: comsider adding a retry button -->
+        <app-error *ngIf=" !(loading$ | async) && (recipesError$ |async)" class="homepage__content__error"></app-error>
       </div>
   </main>
 </div>
-
 <app-footer></app-footer>

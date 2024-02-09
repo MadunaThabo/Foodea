@@ -42,7 +42,7 @@
   --border-radius-x-large: 3.2rem;
 
   //Box shadow
-  --box-shadow: 0 1rem 2rem rgba(0,0,0,.06);
+  --box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.095);
   --shadow-dark:  0 2rem 6rem rgba(0,0,0,.3);
   --shadow-light:  0 2rem 6rem rgba(0,0,0,.06);
 
@@ -65,6 +65,15 @@ $bp-smallest: 31.25em; //600px
 html{
   font-size: 62.5%; //1rem == 10px ==10px/16px
   box-sizing: border-box;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+    border-radius: 5px;
+  }
 
 }
 

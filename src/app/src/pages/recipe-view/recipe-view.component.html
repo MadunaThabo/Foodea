@@ -1,36 +1,40 @@
 <div class="recipepage__container">
   <app-navigation></app-navigation>
 
-  <div *ngIf="recipe" class="content">
-    <h2 class="content__heading">{{recipe!.name}}</h2>
+  <div *ngIf="(loading$ | async)" class="content">
+    <app-loader class="homepage__loader"></app-loader>
+  </div>
+
+  <div *ngIf="!(loading$ | async) && !(recipesError$ |async)" class="content">
+    <h2 class="content__heading">{{(recipe$ | async)!.title}}</h2>
 
     <div class="content__image">
-      <img [src]="recipe!.image" alt="recipe image" class="content__image__img">
+      <img [src]="(recipe$ | async)!.image" alt="recipe image" class="content__image__img">
     </div>
 
     <div class="content__description">
       <div class="content__subtitle">Description</div>
-      <div class="content__description__text">
-        {{recipe!.description}}
+      <div class="content__description__text" [innerHTML]="(recipe$ | async)!.summary">
       </div>
     </div>
 
     <div class="content__ingredients">
       <div class="content__subtitle">Ingredients</div>
       <ul class="content__ingredients__list">
-        <li *ngFor="let ingredient of recipe!.ingredients" class="content__ingredients__list__item">{{ingredient}}</li>
+        <li *ngFor="let ingredient of (recipe$ | async)!.extendedIngredients" class="content__ingredients__list__item">{{ingredient.name}}</li>
       </ul>
     </div>
 
     <div class="content__instructions">
       <div class="content__subtitle">instructions</div>
       <ol class="content__instructions__list">
-        <li *ngFor="let instruction of recipe!.instructions" class="content__instructions__list__item">{{instruction}}</li>
+        <li *ngFor="let instruction of (recipe$ | async)!.analyzedInstructions[0].steps" class="content__instructions__list__item">{{instruction.step}}</li>
       </ol>
     </div>
   </div>
 
-  <div *ngIf="!recipe"class="content">
-    <h2 class="content__heading">Recipe not found</h2>
+  <div *ngIf="!(loading$ | async) &&  (recipesError$ |async)"class="content">
+    <app-error *ngIf="!(loading$ | async) &&  (recipesError$ |async)" class="recipepage__content__error"></app-error>
   </div>
 </div>
+<app-footer></app-footer>

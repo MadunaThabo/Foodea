@@ -4,6 +4,8 @@ import { UserModel } from "../models/user.model";
 import { loginUserAction } from "../actions/user.action";
 import { UserService } from "../services/users/user.service";
 import { UserStateModel } from "../models/userState.model";
+import { RecipeService } from "../services/recipes/recipe.service";
+import { RecipeModel } from "../models/recipe.model";
 
 @State<UserStateModel>({
   name: 'user',
@@ -23,7 +25,7 @@ import { UserStateModel } from "../models/userState.model";
 
 @Injectable()
 export class UserState {
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private recipeService: RecipeService) { }
 
   @Selector()
   static getLoggedIn(state: UserStateModel) {
