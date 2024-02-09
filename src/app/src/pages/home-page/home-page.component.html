@@ -10,7 +10,17 @@
 
         <div *ngIf=" !(loading$ | async) && !(recipesError$ |async) " class="homepage__content__recipeAndArticles">
 
-          <!-- TODO: figure out how to make this carousel work with flexbox -->
+          <span class="homepage__content__recipeAndArticles__title"> Recipes</span>
+          <div class="homepage__content__recipeAndArticles__content">
+            <app-card *ngFor="let recipe of (recipes$ | async)" [recipe]="recipe" class="homepage__content__recipeAndArticles__content__card"></app-card>
+          </div>
+          <!-- <app-pagination class="homepage__content__recipeAndArticles__pagination"></app-pagination> -->
+          <button class="btn-primary" (click)="addMoreRecipes()">Load More</button>
+
+        </div>
+
+        <!-- Future Feature -->
+        <!-- <div *ngIf=" !(loading$ | async) && !(recipesError$ |async) " class="homepage__content__recipeAndArticles">
           <div id="carouselExampleCaptions2" class="carousel slide carousel-fade">
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -18,6 +28,8 @@
                   <div class="homepage__content__recipeAndArticles__content">
                     <app-card *ngFor="let recipe of (recipes$ | async)" [recipe]="recipe" class="homepage__content__recipeAndArticles__content__card"></app-card>
                   </div>
+
+                  <button class="btn-primary" (click)="addMoreRecipes()">Load More</button>
               </div>
               <div class="carousel-item">
                 <span class="homepage__content__recipeAndArticles__title"> Articles coming soon </span>
@@ -32,16 +44,7 @@
               <span class="visually-hidden">Next</span>
             </button>
           </div>
-
-          <!-- <span class="homepage__content__recipeAndArticles__title">
-            Recipe and Articles
-          </span>
-          <div class="homepage__content__recipeAndArticles__content">
-            <app-card *ngFor="let recipe of (recipes$ | async)" [recipe]="recipe" class="homepage__content__recipeAndArticles__content__card"></app-card>
-          </div>
-          <app-pagination class="homepage__content__recipeAndArticles__pagination"></app-pagination> -->
-          <button class="btn-primary" (click)="addMoreRecipes()">Load More</button>
-        </div>
+        </div> -->
 
         <!-- TODO: comsider adding a retry button -->
         <app-error *ngIf=" !(loading$ | async) && (recipesError$ |async)" class="homepage__content__error"></app-error>
