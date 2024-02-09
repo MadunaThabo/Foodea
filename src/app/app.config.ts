@@ -4,7 +4,6 @@ import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { NgxsModule } from '@ngxs/store';
-import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { UserState } from './src/states/user.state';
 import { RecipeState } from './src/states/recipe.state';
 
@@ -20,7 +19,6 @@ export const appConfig: ApplicationConfig = {
           RecipeState
         ]
     ),
-    NgxsReduxDevtoolsPluginModule.forRoot()
     )]
 };
 
