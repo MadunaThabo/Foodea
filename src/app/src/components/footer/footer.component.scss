@@ -65,3 +65,14 @@
     }
   }
 }
+
+@media only screen and (max-width: 37.55em) {
+  .footer {
+    margin: 0;
+
+    &__logo{
+      width: 15rem;
+    }
+    
+  }
+}

@@ -15,11 +15,9 @@
 
     &__recipeAndArticles{
       background-color: var(--color-grey-light-1);
-      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
-      // justify-content: center;
       padding: 3rem;
       margin: 2rem;
       border-radius: var(--border-radius-small);
@@ -60,7 +58,7 @@
         &__card{
           flex: 0 0 30%;
           margin: 1rem;
-          align-content: stretch;
+          // align-content: stretch;
         }
       }
 
@@ -86,6 +84,53 @@
   }
 }
 // TODO: set the position correctly!!!!!!!!!!
+
+@media only screen and (max-width: 75em){ 
+  .homepage {
+    &__content{
+
+      &__recipeAndArticles{
+        margin: 1rem;
+        border-radius: 0;
+
+        &__content{
+          margin: 0;
+
+
+          &__card{
+            flex: 0 0 45%;
+          }
+        }
+      }
+    }
+  } 
+}
+
+
+@media only screen and (max-width: 37.5em){ 
+  .homepage {
+    &__content{
+      margin: 0;
+      border-radius: 0;
+
+      &__recipeAndArticles{
+        margin: 0;
+        border-radius: 0;
+
+        &__content{
+          margin: 0;
+          justify-content: center;
+          align-items: center;
+
+          &__card{
+            flex: 0 0 80%;
+
+          }
+        }
+      }
+    }
+  } 
+}
 
 .carousel-control-prev{
   background-color: red;
