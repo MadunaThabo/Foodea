@@ -8,7 +8,8 @@ import { RecipeFilterModel } from '../../models/recipeFilter.model';
   providedIn: 'root'
 })
 export class RecipeService {
-  apiUrl = 'https://localhost:7008/api/recipes';
+  // apiUrl = 'https://localhost:7008/api/recipes';
+  apiUrl = 'https://foodea.azurewebsites.net/api/recipes';
 
   constructor(private httpClient: HttpClient) { }
 
