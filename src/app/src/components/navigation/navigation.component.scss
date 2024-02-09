@@ -135,3 +135,40 @@
     }
   }
 }
+
+@media only screen and (max-width: 56.25em) {
+  .navigation {
+    // background-color: red;
+    flex-direction: column;
+    height: max-content;
+
+    &__logo{
+      margin-bottom: 2rem;
+    }
+
+    &__searchbar{
+      align-self: center;
+      justify-self: center;
+      margin-bottom: 2rem;
+      min-width: 60%;
+
+      &--input{
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem;
+
+        &:focus{
+          width: 100%;
+          transform: scale(1.1);
+        }
+      }
+    }
+  } 
+}
+
+
+@media only screen and (max-width: 37.5em) {
+  .navigation {
+    margin: 0;
+  } 
+}
