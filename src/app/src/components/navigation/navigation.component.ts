@@ -35,10 +35,8 @@ export class NavigationComponent {
   openMenuOrLoginPopup() {
     this.loggedIn$.subscribe((loggedIn) => {
       if(loggedIn) {
-        console.log('open menu', loggedIn);
       }
       else {
-        console.log('open login', loggedIn);
         this.matDialog.open(LoginComponent);
       }
     }
@@ -46,7 +44,6 @@ export class NavigationComponent {
   }
 
   searchRecipes() {
-    console.log('searchRecipes', this.searchTerm);
     this.router.navigate(['/']);
     this.store.dispatch(new SearchRecipesAction(this.searchTerm))
   }

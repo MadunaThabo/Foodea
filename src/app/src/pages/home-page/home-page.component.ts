@@ -33,7 +33,6 @@ export class HomePageComponent {
   }
 
   async ngOnInit(){
-    console.log('ngOnInit')
     // this.loading = true;/
     await this.getRecipes();
   }
@@ -41,27 +40,23 @@ export class HomePageComponent {
   async getRecipes(){
     await this.store.dispatch(new GetRandomRecipesAction()).subscribe({
       next: (result)=>{
-        console.log('swicthing', result)
         // this.loading = false;
 
       },
       error: (error)=>{
-        console.log('can to an error...',error)
         // this.loading$ = false;
       }
     })
   }
 
   async addMoreRecipes(){
-    
+
     await this.store.dispatch(new GetRandomRecipesAction(12, true)).subscribe({
       next: (result)=>{
-        console.log('swicthing', result)
         // this.loading = false;
 
       },
       error: (error)=>{
-        console.log('can to an error...',error)
         // this.loading$ = false;
       }
     })

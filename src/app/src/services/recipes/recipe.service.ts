@@ -14,7 +14,6 @@ export class RecipeService {
   constructor(private httpClient: HttpClient) { }
 
   getRandomRecipes(numberOfRecipes: number = 15): Observable<RecipeModel[] | Error> {
-    console.log('getRandomRecipes', numberOfRecipes);
     const loginUrl = `${this.apiUrl}/random?number=${numberOfRecipes}`;
     return this.httpClient.get<any>(loginUrl,{}).pipe(
       catchError((error) => {

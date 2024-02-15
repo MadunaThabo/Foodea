@@ -95,12 +95,6 @@ export class FilterComponent {
   }
 
   applyFilters() {
-    console.log('apply filters');
-    console.log('ingredients', this.ingredients);
-    console.log('selected cuisince', this.selectedCuisine);
-    console.log('selected diet', this.selectedDiet);
-    console.log('selected meal type', this.selectedMealType);
-    console.log('selected max ready time', this.selectedMaxReadyTime);
     this.store.dispatch(new UpdateRecipeFiltersAction(this.ingredients, this.selectedCuisine, this.selectedDiet, this.selectedMealType, this.selectedMaxReadyTime));
   }
 
