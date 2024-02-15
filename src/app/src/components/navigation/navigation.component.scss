@@ -8,10 +8,24 @@
   justify-content: space-evenly;
   box-shadow: 0 1rem 2rem rgba(0,0,0,0.1);
 
+  @media only screen and (max-width: 56.25em) {
+    flex-direction: column;
+    height: max-content;
+  }
+
+  @media only screen and (max-width: 37.5em) {
+      margin: 0;
+  }
+
+
   &__logo{
     display: flex;
     align-items: center;
     cursor: pointer;
+
+    @media only screen and (max-width: 56.25em) {
+      margin-bottom: 2rem;
+    }
 
     &--image {
 
@@ -33,6 +47,13 @@
 
 
   &__searchbar{
+    @media only screen and (max-width: 56.25em) {
+      align-self: center;
+      justify-self: center;
+      margin-bottom: 2rem;
+      min-width: 60%;
+    }
+
     &--input{
       width: 40rem;
       height: 3.5rem;
@@ -46,10 +67,23 @@
       text-align: center;
       transition: all .2s;
 
+
+      @media only screen and (max-width: 56.25em) {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem;
+      }
+
+
       &:focus{
         outline-color: var(--color-primary);
         width: 50rem;
         background-color: var(--color-grey-light-3);
+
+        @media only screen and (max-width: 56.25em) {
+          width: 100%;
+          transform: scale(1.1);
+        }
       }
 
       &::-webkit-input-placeholder{
@@ -136,39 +170,5 @@
   }
 }
 
-@media only screen and (max-width: 56.25em) {
-  .navigation {
-    // background-color: red;
-    flex-direction: column;
-    height: max-content;
-
-    &__logo{
-      margin-bottom: 2rem;
-    }
-
-    &__searchbar{
-      align-self: center;
-      justify-self: center;
-      margin-bottom: 2rem;
-      min-width: 60%;
-
-      &--input{
-        width: 100%;
-        text-align: center;
-        padding: 0.5rem;
-
-        &:focus{
-          width: 100%;
-          transform: scale(1.1);
-        }
-      }
-    }
-  } 
-}
 
 
-@media only screen and (max-width: 37.5em) {
-  .navigation {
-    margin: 0;
-  } 
-}

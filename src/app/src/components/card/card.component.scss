@@ -4,7 +4,10 @@
   border-radius: var(--border-radius-medium);
   overflow: hidden;
   box-shadow: var(--box-shadow);
-  
+
+  @media only screen and (max-width: 75em){
+    height: 50rem;
+  }
 
   &:hover{
     transform: translateY(-1.5rem) scale(1.03);
@@ -48,28 +51,21 @@
       margin-bottom: 2rem;
       color: var(--color-grey-dark-2);
     }
-  }
-}
 
-
-
-@media only screen and (max-width: 75em){ 
-  .card {
-    height: 50rem;
-
-    &__content{
-
+    @media only screen and (max-width: 75em){
       &__button{
         width: 100%;
         margin-bottom: 0;
         padding: 0;
+
+        .btn-primary{
+          margin-bottom: 0;
+          width: 100%;
+        }
       }
     }
   }
-
-  .btn-primary{
-    margin-bottom: 0;
-    width: 100%;
-    // border-radius: 0;
-  }
 }
+
+
+

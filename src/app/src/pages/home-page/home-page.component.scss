@@ -9,6 +9,11 @@
     box-shadow: 0 1.5rem 4rem rgba(0,0,0,0.15);
     display: flex;
 
+    @media only screen and (max-width: 37.5em){
+      margin: 0;
+      border-radius: 0;
+    }
+
     &__filter{
       flex: 0 0 30%;
     }
@@ -27,6 +32,15 @@
       overflow: scroll;
       max-height: 100rem;
 
+      @media only screen and (max-width: 75em){
+        margin: 1rem;
+        border-radius: 0;
+      }
+
+      @media only screen and (max-width: 37.5em){
+        margin: 0;
+        border-radius: 0;
+      }
 
       &::-webkit-scrollbar {
         width: 10px;
@@ -54,18 +68,33 @@
         flex-wrap: wrap;
         margin: 2rem;
 
+        @media only screen and (max-width: 75em){
+          margin: 0;
+        }
 
+        @media only screen and (max-width: 37.5em){
+          margin: 0;
+          justify-content: center;
+          align-items: center;
+        }
         &__card{
           flex: 0 0 30%;
           margin: 1rem;
           // align-content: stretch;
+
+          @media only screen and (max-width: 75em){
+            flex: 0 0 45%;
+          }
+
+          @media only screen and (max-width: 37.5em){
+            flex: 0 0 80%;
+          }
         }
       }
 
       &__pagination{
         position: absolute;
         bottom: 0;
-        // right: 0;
         margin-top: 5rem;
       }
     }
@@ -77,59 +106,10 @@
 
   }
 
-
   &__loader{
     flex: 1;
     margin: 2rem;
   }
-}
-// TODO: set the position correctly!!!!!!!!!!
-
-@media only screen and (max-width: 75em){ 
-  .homepage {
-    &__content{
-
-      &__recipeAndArticles{
-        margin: 1rem;
-        border-radius: 0;
-
-        &__content{
-          margin: 0;
-
-
-          &__card{
-            flex: 0 0 45%;
-          }
-        }
-      }
-    }
-  } 
-}
-
-
-@media only screen and (max-width: 37.5em){ 
-  .homepage {
-    &__content{
-      margin: 0;
-      border-radius: 0;
-
-      &__recipeAndArticles{
-        margin: 0;
-        border-radius: 0;
-
-        &__content{
-          margin: 0;
-          justify-content: center;
-          align-items: center;
-
-          &__card{
-            flex: 0 0 80%;
-
-          }
-        }
-      }
-    }
-  } 
 }
 
 .carousel-control-prev{
