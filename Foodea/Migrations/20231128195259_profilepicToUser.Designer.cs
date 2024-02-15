@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Foodea.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -12,9 +13,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Foodea.Migrations
 {
     [DbContext(typeof(FoodeaDbContext))]
-    partial class FoodeaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231128195259_profilepicToUser")]
+    partial class profilepicToUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

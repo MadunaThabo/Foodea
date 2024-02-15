@@ -23,9 +23,9 @@ namespace Foodea.Data
                 entity.HasKey(e => e.UserId);
             });
 
-            modelBuilder.Entity<Recipe>(entity => {
-                entity.HasKey(e => e.id);
-            });
+            //modelBuilder.Entity<Recipe>(entity => {
+            //    entity.HasKey(e => e.id);
+            //});
 
             OnModelCreatingPartial(modelBuilder);
         }

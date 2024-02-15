@@ -5,6 +5,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.IO.Pipelines;
 using System.Collections.Concurrent;
+using System.Configuration;
 
 namespace Foodea.Services {
 
@@ -20,9 +21,14 @@ namespace Foodea.Services {
         private readonly HttpClient httpClient = new HttpClient();
         private string apiKey;
         public SpoonacularService(IConfiguration config) {
-            //var random = config.GetValue<string>("APIKeys:spoonacularApiKey");
-            this.apiKey = config.GetValue<string>("APIKeys:spoonacularApiKey");
-            this.httpClient.DefaultRequestHeaders.Add("apiKey", config.GetValue<string>("APIKeys:spoonacularApiKey"));
+            //this.apiKey = config.GetValue<string>("APIKeys:spoonacularApiKey");
+            //this.httpClient.DefaultRequestHeaders.Add("apiKey", config.GetValue<string>("APIKeys:spoonacularApiKey"));
+            
+            string[] keys = config.GetSection("APIKeys:Keys").Get<string[]>();
+            int random = new Random().Next(0, keys.Length-1);
+            this.apiKey = keys[random];
+            this.httpClient.DefaultRequestHeaders.Add("apiKey", this.apiKey);
+
         }
 
         public async Task<string> GetRandomRecipes(int number) {
@@ -64,7 +70,8 @@ namespace Foodea.Services {
 
         public async Task<string> searchRecipe(string query)
         {
-            var url = "https://api.spoonacular.com/recipes/complexSearch?query=" + query + "&number=12" + "&apiKey=" + apiKey;
+            var url = "https://api.spoonacular.com/recipes/complexSearch?" + query + "&apiKey=" + apiKey;
+            //var url = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples,+flour,+sugar&number=2" + "&type=breakfast" + "&apiKey=" + apiKey;
             var response = await this.httpClient.GetAsync(url);
             var content = await response.Content.ReadAsStringAsync();
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
@@ -89,9 +96,11 @@ namespace Foodea.Services {
             }
         }
 
+
+
         public async Task<string> getRecipesByIngredients(string query)
         {
-            var url = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + query + "&number=24&limitLicense=true&ranking=1&ignorePantry=true&includeNutrition=true&apiKey=" + apiKey + "&sort=missedIngredients";
+            var url = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + query + "&number=3&limitLicense=true&ranking=1&ignorePantry=true&includeNutrition=true&apiKey=" + apiKey + "&sort=missedIngredients";
             var response = await this.httpClient.GetAsync(url);
             var content = await response.Content.ReadAsStringAsync();
             if (response.StatusCode == System.Net.HttpStatusCode.OK)

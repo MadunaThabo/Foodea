@@ -26,11 +26,28 @@ namespace Foodea.Controllers
 
         // GET: api/Users
         [HttpGet]
-        public IActionResult GetUser()
+        public IActionResult GetUsers()
         {
             try {
                 var users = this.userService.getAllUsers();
                 return Ok(users);
+            }
+            catch (Exception ex) {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost("login")]
+        public IActionResult Login([FromBody] UserCredentials credentials) {
+            try {
+                var user = this.userService.login(credentials.Email, credentials.Password);
+                if (user == null) {
+                    return BadRequest("User does not exist");
+                }
+                if (user.Password != credentials.Password) {
+                    return BadRequest("Incorrect password");
+                }
+                return Ok(user);
             }
             catch (Exception ex) {
                 return BadRequest(ex.Message);
@@ -62,9 +79,18 @@ namespace Foodea.Controllers
             }
         }
 
-        [HttpPut("randmom")]
-        public IActionResult GetRandomUser(User user) {
-            return Ok(user);
+        [HttpPut("update")]
+        public IActionResult UpdateUser(User user) {
+            try {
+                var response = this.userService.updateUser(user);
+                if(response == null) {
+                    return BadRequest("User does not exist");
+                }
+                return Ok(response);
+            }
+            catch (Exception ex) {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost]

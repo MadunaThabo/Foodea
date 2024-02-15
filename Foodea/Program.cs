@@ -11,6 +11,9 @@ builder.Services.AddCors(option => {
          builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()
             );
 });
+builder.Services.AddCors(p => p.AddPolicy("corspolicy", build => {
+    build.WithOrigins("http://localhost:4200", "http://localhost:5174").AllowAnyMethod().AllowAnyHeader().AllowCredentials().SetIsOriginAllowed((host) => true);
+}));
 
 builder.Services.AddScoped<IUserServices, UserService>();
 builder.Services.AddScoped<ISpoonacularServices, SpoonacularService>();
@@ -30,7 +33,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors("allowedOrigin");
+app.UseCors("corspolicy");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

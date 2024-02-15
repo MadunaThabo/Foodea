@@ -5,5 +5,4 @@
         public List<Equipment> equipment { get; set; }
         public string stepDescription { get; set; }
     }
-
 }

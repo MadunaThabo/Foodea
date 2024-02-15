@@ -5,7 +5,7 @@ namespace Foodea.Models {
         [Key]
         public int id { get; set; }
         public int aggregateLikes { get; set; }
-        public List<AnalyzedInstruction> analyzedInstructions { get; set; }
+        //public List<AnalyzedInstruction> analyzedInstructions { get; set; }
         public bool cheap { get; set; }
         public int cookingMinutes { get; set; }
         public string creditsText { get; set; }
@@ -13,7 +13,7 @@ namespace Foodea.Models {
         public bool dairyFree { get; set; }
         public List<string> diets { get; set; }
         public List<string> dishTypes { get; set; }
-        public List<ExtendedIngredient> extendedIngredients { get; set; }
+        //public List<ExtendedIngredient> extendedIngredients { get; set; }
         public string gaps { get; set; }
         public bool glutenFree { get; set; }
         public int healthScore { get; set; }
@@ -24,7 +24,7 @@ namespace Foodea.Models {
         public string license { get; set; }
         public bool lowFodmap { get; set; }
         public List<string> occasions { get; set; }
-        public object originalId { get; set; }
+        //public object originalId { get; set; }
         public int preparationMinutes { get; set; }
         public double pricePerServing { get; set; }
         public int servings { get; set; }

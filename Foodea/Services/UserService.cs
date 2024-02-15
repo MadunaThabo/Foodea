@@ -9,6 +9,8 @@ namespace Foodea.Services{
         public User getUserByEmail(string email);
         public Boolean createUser(User user);
         public string deleteUserById(Guid id);
+        public User updateUser(User user);
+        public User login(string email, string password);
 
 
     }
@@ -51,6 +53,31 @@ namespace Foodea.Services{
             var reponse = this.foodeaDbContext.User.Remove(user);
             this.foodeaDbContext.SaveChanges();
             return "User deleted successfully";
+        }
+
+        public User updateUser(User user) {
+            var userToUpdate = this.getUserById(user.UserId);
+            if (userToUpdate == null) {
+                return null;
+            }
+            userToUpdate.Name = user.Name;
+            userToUpdate.Surname = user.Surname;
+            userToUpdate.Email = user.Email;
+            userToUpdate.Password = user.Password;
+            userToUpdate.Profile = user.Profile;
+            this.foodeaDbContext.SaveChanges();
+            return userToUpdate;
+        }
+
+        public User login(string email, string password) {
+            var user = this.getUserByEmail(email);
+            if (user == null) {
+                return null;
+            }
+            if (user.Password != password) {
+                return null;
+            }
+            return user;
         }
     }
 }
