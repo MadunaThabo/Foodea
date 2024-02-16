@@ -1,6 +1,6 @@
 # Foodea
 
-The project is a small food recipe website, enjoy!... 
+The project is a small food recipe website, it is hosted on https://www.foodea.co.za/home enjoy!... 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
 
