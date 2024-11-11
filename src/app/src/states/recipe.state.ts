@@ -94,7 +94,6 @@ export class RecipeState {
   @Action(UpdateRecipeFiltersAction)
   updateRecipeFiltersAction(ctx: StateContext<RecipeStateModel>, action: UpdateRecipeFiltersAction){
     const state = ctx.getState();
-    console.log('updateRecipeFiltersAction', action);
     ctx.patchState({
       ...state,
       recipeFilters: {
@@ -111,7 +110,6 @@ export class RecipeState {
   @Action(GetRandomRecipesAction)
   getRandomRecipes(ctx: StateContext<RecipeStateModel>, action: GetRandomRecipesAction) {
     const state = ctx.getState();
-    console.log('getRandomRecipes', action.numberOfRecipes);
     ctx.patchState({
       ...state,
       loading: true
@@ -155,7 +153,6 @@ export class RecipeState {
       ...state,
       loading: true
     });
-    console.log('getRecipeById', action.id);
     return this.recipeService.getRecipeById(action.id).subscribe({
       next: (recipe: any) => {
         if (recipe instanceof Error) {
@@ -179,7 +176,6 @@ export class RecipeState {
 
   @Action(SearchRecipesAction)
   searchRecipes(ctx: StateContext<RecipeStateModel>, action: SearchRecipesAction){
-    console.log('searchRecipes', action.searchTerm);
     const state = ctx.getState();
     ctx.patchState({
       ...state,

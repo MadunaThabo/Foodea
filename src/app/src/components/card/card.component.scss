@@ -4,7 +4,15 @@
   border-radius: var(--border-radius-medium);
   overflow: hidden;
   box-shadow: var(--box-shadow);
-  
+
+  @media only screen and (max-width: 75em){
+    height: 50rem;
+  }
+
+  @media only screen and (max-width: 22.5em){
+    display: grid;
+    grid-template-rows:50% 50%;
+  }
 
   &:hover{
     transform: translateY(-1.5rem) scale(1.03);
@@ -14,6 +22,11 @@
     width: 100%;
     height: 40rem;
 
+    @media only screen and (max-width: 75em){
+      width: 100%;
+      height: 100%;
+      grid-row: 1/2;
+    }
     overflow: hidden;
     position: relative;
     background-color: var(--color-grey-light-1);
@@ -33,6 +46,12 @@
     flex-direction: column;
     align-items: center;
 
+    @media only screen and (max-width: 22.5em){
+      display: grid;
+      grid-row: 2/3;
+      grid-template-rows:50% 50%;
+    }
+
     &__subtitle{
       font-size: 1.5rem;
       font-weight: 300;
@@ -41,35 +60,34 @@
       letter-spacing: .5rem;
       color: var(--color-grey-dark-1);
       text-align: center;
+
+
     }
 
     &__description{
       font-size: 1.5rem;
       margin-bottom: 2rem;
       color: var(--color-grey-dark-2);
+
+      @media only screen and (max-width: 22.5em){
+        display: none;
+      }
     }
-  }
-}
 
-
-
-@media only screen and (max-width: 75em){ 
-  .card {
-    height: 50rem;
-
-    &__content{
-
+    @media only screen and (max-width: 75em){
       &__button{
         width: 100%;
         margin-bottom: 0;
         padding: 0;
+
+        .btn-primary{
+          margin-bottom: 0;
+          width: 100%;
+        }
       }
     }
   }
-
-  .btn-primary{
-    margin-bottom: 0;
-    width: 100%;
-    // border-radius: 0;
-  }
 }
+
+
+

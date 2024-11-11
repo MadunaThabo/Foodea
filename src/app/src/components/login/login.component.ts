@@ -34,7 +34,6 @@ export class LoginComponent {
   }
 
   closePopup() {
-    console.log('closePopup');
     this.matDialogRef.close();
   }
 
@@ -43,7 +42,6 @@ export class LoginComponent {
       next: ()=> {
         this.loggedIn$.subscribe((loggedIn) => {
           if(loggedIn) {
-            console.log('open menu', loggedIn);
             this.loginForm.reset();
             this.closePopup();
           }
@@ -51,18 +49,15 @@ export class LoginComponent {
 
         this.user$.subscribe(
           (user) => {
-          console.log('user', user);
           }
         );
       },
       error: (error)=>{
-        console.log('error 2', error);
       }
     });
   }
 
   switchLoginOrSignUpTab(isLogin: boolean) {
-    console.log('switchLoginOrSignUpTab to', isLogin);
     this.isLogin = isLogin;
   }
 }

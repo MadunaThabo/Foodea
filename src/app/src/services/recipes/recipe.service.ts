@@ -9,12 +9,11 @@ import { RecipeFilterModel } from '../../models/recipeFilter.model';
 })
 export class RecipeService {
   // apiUrl = 'https://localhost:7008/api/recipes';
-  apiUrl = 'https://foodea.azurewebsites.net/api/recipes';
+  apiUrl = 'https://foodea-backend-production.up.railway.app/api/Recipes';
 
   constructor(private httpClient: HttpClient) { }
 
   getRandomRecipes(numberOfRecipes: number = 15): Observable<RecipeModel[] | Error> {
-    console.log('getRandomRecipes', numberOfRecipes);
     const loginUrl = `${this.apiUrl}/random?number=${numberOfRecipes}`;
     return this.httpClient.get<any>(loginUrl,{}).pipe(
       catchError((error) => {

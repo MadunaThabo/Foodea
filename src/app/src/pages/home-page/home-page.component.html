@@ -1,11 +1,12 @@
-<!-- <a href="/recipe-view/1">learn more</a> -->
 <div class="homepage__container">
   <app-navigation></app-navigation>
   <main>
       <app-carousel></app-carousel>
 
       <div class="homepage__content">
-        <!-- <app-filter class="homepage__content__filter"></app-filter> -->
+
+        <app-filter class="homepage__content__filter"></app-filter>
+        
         <app-loader *ngIf="(loading$ | async)" class="homepage__loader"></app-loader>
 
         <div *ngIf=" !(loading$ | async) && !(recipesError$ |async) " class="homepage__content__recipeAndArticles">

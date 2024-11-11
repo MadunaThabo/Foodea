@@ -34,12 +34,10 @@ export class RecipeViewComponent {
   ngOnInit(): void {
     const url = this.locationStrategy.path();
     this.id = parseInt(url.split('/')[2]);
-    console.log('passed id', this.id);
     this.store.dispatch(new GetRecipesByIdAction(this.id)).subscribe({
       next: ()=> {
         this.recipe$.subscribe((recipe) => {
           // this.recipe = recipe;
-          console.log('recipe', recipe);
         });
       }
     })

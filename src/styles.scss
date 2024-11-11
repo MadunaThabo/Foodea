@@ -74,12 +74,11 @@ html{
     background-color: var(--color-primary);
     border-radius: 5px;
   }
-}
 
-@media only screen and (max-width: 56.25em) {
-  html {
+  @media only screen and (max-width: 56.25em) {
     font-size: 50%; //1rem == 8px ==8px/16px
-  } 
+  }
+
 }
 
 body{

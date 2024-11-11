@@ -11,10 +11,17 @@
   align-content: center;
   justify-content: center;
 
+  @media only screen and (max-width: 37.55em) {
+      margin: 0;
+  }
+
   &__logo{
     width: 200px;
     margin: 0 auto;
 
+    @media only screen and (max-width: 37.55em) {
+      width: 15rem;
+    }
   }
 
   &__title{
@@ -63,16 +70,5 @@
         cursor: pointer;
       }
     }
-  }
-}
-
-@media only screen and (max-width: 37.55em) {
-  .footer {
-    margin: 0;
-
-    &__logo{
-      width: 15rem;
-    }
-    
   }
 }
